@@ -1,10 +1,18 @@
 class particle {
-  constructor(ray, max, min, location) {
-    this.theta = ray,
-    this.r = Math.random() * (max - min) + min,
-    this.vector = [0, 0],
-    this.location = location,
-    this.calculate();
+  constructor(rocket, location, max, min, ray) {
+    if(rocket == false){
+      this.theta = ray,
+      this.r = Math.random() * (max - min) + min,
+      this.vector = [0, 0],
+      this.location = location,
+      this.calculate();
+    }
+    else{
+      this.theta = 90,
+      this.r = -Math.sqrt(-(2*-.0098*location[1])),
+      this.vector = [0, this.r],
+      this.location = [location[0], canvas.height];
+    }
   }
 
   calculate(){
