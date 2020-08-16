@@ -19,7 +19,7 @@ const createExp = (x, y) => {
 }
 
 const createRocket = (x, y) => {
-  rocketList.push(new particle(true, [x, y]));
+  rocketList.push(new particle(true, [x, y], .5, -.5));
 }
 
 const draw = () =>{
@@ -50,8 +50,7 @@ const update = () =>{
 
   for (var a = rocketList.length; a > 0; a--) {
     const i = a - 1;
-
-    if(rocketList[i].vector[1] > 0){
+    if(rocketList[i].vector[1] > random(.1*canvas.height, 0)){
       createExp(rocketList[i].location[0], rocketList[i].location[1]);
       rocketList.splice(i, 1);
     }
@@ -114,6 +113,6 @@ refresh = setInterval(() =>{
 }, 10);
 
 randomExp = setInterval(() => {
-  randomXY = [random(canvas.width, 0), random(canvas.height, 0)]
+  randomXY = [random(canvas.width, 0), random(canvas.height, .15*canvas.height)]
   createRocket(randomXY[0], randomXY[1]);
 }, 500);

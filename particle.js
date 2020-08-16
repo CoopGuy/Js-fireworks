@@ -10,7 +10,7 @@ class particle {
     else{
       this.theta = 90,
       this.r = -Math.sqrt(-(2*-.0098*location[1])),
-      this.vector = [0, this.r],
+      this.vector = [(Math.random() * (max - min) + min), this.r],
       this.location = [location[0], canvas.height];
     }
   }
