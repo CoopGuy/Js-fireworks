@@ -115,4 +115,4 @@ refresh = setInterval(() =>{
 randomExp = setInterval(() => {
   randomXY = [random(canvas.width, 0), random(canvas.height, .15*canvas.height)]
   createRocket(randomXY[0], randomXY[1]);
-}, 500);
+}, 400);
