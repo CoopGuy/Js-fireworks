@@ -5,6 +5,8 @@ class particle {
       this.r = Math.random() * (max - min) + min,
       this.vector = [0, 0],
       this.location = location,
+      this.lifeTime = 0,
+      this.deathTime = random(125, 10),
       this.calculate();
     }
     else{
@@ -26,6 +28,7 @@ class particle {
   move(){
     this.location[0] += this.vector[0];
     this.location[1] += this.vector[1];
+    this.lifeTime++;
   }
 
   aForce(force){

@@ -50,7 +50,7 @@ const update = () =>{
 
   for (var a = rocketList.length; a > 0; a--) {
     const i = a - 1;
-    if(rocketList[i].vector[1] > random(.1*canvas.height, 0)){
+    if(rocketList[i].vector[1] > random(.08*canvas.height, 0)){
       createExp(rocketList[i].location[0], rocketList[i].location[1]);
       rocketList.splice(i, 1);
     }
@@ -83,9 +83,11 @@ const update = () =>{
     particleList.shift();
   }
 
-  particleList.forEach((item, i) => {
-    for (var i = 0; i < 1; i++) {
-      item.splice(Math.floor(Math.random() * (particleList.length - 0) + 0), 1);
+  particleList.forEach( item => {
+    for(var i = item.length - 1; i >= 0; i--){
+      if(item[i].lifeTime > item[i].deathTime){
+        item.splice(i, 1);
+      }
     }
   });
 }
