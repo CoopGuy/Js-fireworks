@@ -12,7 +12,7 @@ const createExp = (x, y) => {
   fireWork = [];
   for (var i = 0; i <= 360; i++) {
     if(i % 3 == 1 || i == 0){
-      fireWork.push(new particle(false, [x, y], 1, .5, i));
+      fireWork.push(new particle(false, [x, y], 1, .1, i));
     }
   }
   particleList.push(fireWork);
