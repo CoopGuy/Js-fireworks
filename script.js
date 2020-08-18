@@ -25,19 +25,20 @@ const createRocket = (x, y) => {
 const draw = () =>{
   ctx.fillStyle = 'rgb(0, 0, 0)';
   ctx.fillRect(0,0, canvas.width, canvas.height);
+  ctx.fillStyle = `rgb(${random(255, 0)},${random(255, 0)},${random(255, 0)})`;
 
   particleList.forEach((item) => {
     item.forEach((part) => {
-      ctx.fillStyle = `rgb(${random(255, 0)},${random(255, 0)},${random(255, 0)})`;
       ctx.beginPath();
-      ctx.arc(part.location[0],part.location[1],1.25,0,2*Math.PI);
+      ctx.arc(part.location[0],part.location[1],1,0,2*Math.PI);
       ctx.fill();
       ctx.closePath();
     });
   });
 
+  ctx.fillStyle = `rgb(255, 0, 0)`;
+
   rocketList.forEach((part) => {
-    ctx.fillStyle = `rgb(255, 0, 0)`;
     ctx.beginPath();
     ctx.arc(part.location[0],part.location[1],1.25,0,2*Math.PI);
     ctx.fill();
